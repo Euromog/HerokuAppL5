@@ -26,7 +26,7 @@ public class AddRemoveElementsTest {
     }
 
     @Test
-    public void checkboxTest(){
+    public void addRemoveElementsTest(){
         driver.get("http://the-internet.herokuapp.com/add_remove_elements/");
         WebElement addButton = driver.findElement(By.xpath("//*[@onclick='addElement()']"));
         addButton.click();

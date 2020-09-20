@@ -27,7 +27,7 @@ public class DropdownTest {
     }
 
     @Test
-    public void checkboxTest(){
+    public void dropdownTest(){
         driver.get("http://the-internet.herokuapp.com/dropdown");
         Select select= new Select(driver.findElement(By.id("dropdown")));
         assertEquals(select.getOptions().size(), 3, "Should be 3 options");

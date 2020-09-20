@@ -29,7 +29,7 @@ public class SortableDataTablesTest {
     }
 
     @Test
-    public void inputTest(){
+    public void sortableDataTablesTest(){
         driver.get("http://the-internet.herokuapp.com/tables");
         WebElement table1 = driver.findElement(By.xpath("//table[1]"));
         WebElement table1Row1 = table1.findElement(By.xpath("//tr[1]"));

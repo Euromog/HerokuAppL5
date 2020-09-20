@@ -21,14 +21,7 @@ public class InputTest {
         options.addArguments("ignore-popup-blocking");
         options.addArguments("ignore-certificate.errors");
         driver = new ChromeDriver(options);
-//        driver.manage().window().maximize();
-//        driver.manage().window().fullscreen();
-//        driver.manage().window().setSize(new Dimension(300,500));
-//        driver.manage().window().setPosition(new Point(500, 200));
-//        driver.manage().window().getSize();
-//        driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS); //ожидание загрузки страницы
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);  //таймаут для поиска элемента
-        driver.manage().timeouts().setScriptTimeout(1, TimeUnit.DAYS); //ожидание загрузки скрипта
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 
     }
 

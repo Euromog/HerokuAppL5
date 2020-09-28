@@ -12,21 +12,7 @@ import java.util.concurrent.TimeUnit;
 
 import static org.testng.Assert.assertEquals;
 
-public class InputTest {
-
-    WebDriver driver;
-
-    @BeforeMethod
-    public void setup() {
-        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
-        ChromeOptions options = new ChromeOptions();
-        options.setHeadless(false);
-        options.addArguments("ignore-popup-blocking");
-        options.addArguments("ignore-certificate.errors");
-        driver = new ChromeDriver(options);
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-    }
-
+public class InputTest extends baseTest {
     @Test
     public void inputTest() {
         final String URL = "http://the-internet.herokuapp.com/inputs";
@@ -39,10 +25,5 @@ public class InputTest {
         assertEquals(input.getAttribute("value"), "2", "2 should be displayed after tapping Arrow_Down");
         input.sendKeys("tst");
         assertEquals(input.getAttribute("value"), "2", "2 should be displayed");
-    }
-
-    @AfterMethod
-    public void tearDown() {
-        driver.quit();
     }
 }

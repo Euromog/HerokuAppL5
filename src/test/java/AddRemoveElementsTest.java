@@ -12,19 +12,7 @@ import java.util.concurrent.TimeUnit;
 
 import static org.testng.Assert.assertEquals;
 
-public class AddRemoveElementsTest {
-
-    WebDriver driver;
-
-    @BeforeMethod
-    public void setup() {
-        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
-        ChromeOptions options = new ChromeOptions();
-        options.setHeadless(false);
-        driver = new ChromeDriver(options);
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-    }
-
+public class AddRemoveElementsTest extends baseTest {
     @Test
     public void addRemoveElementsTest() {
         final String URL = "http://the-internet.herokuapp.com/add_remove_elements/";
@@ -35,10 +23,5 @@ public class AddRemoveElementsTest {
         List<WebElement> deleteElement = driver.findElements(By.xpath("//*[@onclick='deleteElement()']"));
         deleteElement.get(0).click();
         assertEquals(driver.findElements(By.id("elements")).size(), 1, "1 Element should be displayed");
-    }
-
-    @AfterMethod
-    public void tearDown() {
-        driver.quit();
     }
 }

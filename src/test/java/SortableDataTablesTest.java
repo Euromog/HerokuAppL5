@@ -11,21 +11,7 @@ import java.util.concurrent.TimeUnit;
 
 import static org.testng.Assert.assertEquals;
 
-public class SortableDataTablesTest {
-
-    WebDriver driver;
-
-    @BeforeMethod
-    public void setup() {
-        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
-        ChromeOptions options = new ChromeOptions();
-        options.setHeadless(false);
-        options.addArguments("ignore-popup-blocking");
-        options.addArguments("ignore-certificate.errors");
-        driver = new ChromeDriver(options);
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-    }
-
+public class SortableDataTablesTest extends baseTest {
     @Test
     public void sortableDataTablesTest() {
         final String URL = "http://the-internet.herokuapp.com/tables";
@@ -37,10 +23,5 @@ public class SortableDataTablesTest {
         assertEquals(table1Row1.findElement(By.xpath("//td[3]")).getText(), "jsmith@gmail.com", "Email should be jsmith@gmail.com");
         assertEquals(table1Row1.findElement(By.xpath("//td[4]")).getText(), "$50.00", "Due should be $50.00");
         assertEquals(table1Row1.findElement(By.xpath("//td[5]")).getText(), "http://www.jsmith.com", "Web site should be http://www.jsmith.com");
-    }
-
-    @AfterMethod
-    public void tearDown() {
-        driver.quit();
     }
 }

@@ -13,19 +13,7 @@ import java.util.concurrent.TimeUnit;
 
 import static org.testng.Assert.assertEquals;
 
-public class HoversTest {
-
-    WebDriver driver;
-
-    @BeforeMethod
-    public void setup() {
-        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
-        ChromeOptions options = new ChromeOptions();
-        options.setHeadless(false);
-        driver = new ChromeDriver(options);
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-    }
-
+public class HoversTest extends baseTest {
     @Test
     public void hovers1Test() {
         driver.get("http://the-internet.herokuapp.com/hovers");
@@ -58,10 +46,5 @@ public class HoversTest {
         assertEquals(driver.findElement(By.xpath("//*[@id='content']/div/div[3]/div/h5")).getText(), "name: user3", "name: user1 should be displayed");
         driver.findElement(By.linkText("View profile")).click();
         assertEquals(driver.findElement(By.xpath("//h1[text()='Not Found']")).getText(), "Not Found", "404 Not Found");
-    }
-
-    @AfterMethod
-    public void tearDown() {
-        driver.quit();
     }
 }

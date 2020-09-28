@@ -11,19 +11,7 @@ import java.util.concurrent.TimeUnit;
 
 import static org.testng.Assert.assertEquals;
 
-public class TyposTest {
-
-    WebDriver driver;
-
-    @BeforeMethod
-    public void setup() {
-        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
-        ChromeOptions options = new ChromeOptions();
-        options.setHeadless(false);
-        driver = new ChromeDriver(options);
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-    }
-
+public class TyposTest extends baseTest {
     @Test
     public void typosTest() {
         final String URL = "http://the-internet.herokuapp.com/typos";
@@ -32,10 +20,5 @@ public class TyposTest {
         String text = "Typos\n" + "This example demonstrates a typo being introduced. It does it randomly on each page load.\n" + "Sometimes you'll see a typo, other times you won't.";
         String actualResult = content.getText();
         assertEquals(actualResult, text);
-    }
-
-    @AfterMethod
-    public void tearDown() {
-        driver.quit();
     }
 }

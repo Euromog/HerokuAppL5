@@ -10,15 +10,15 @@ import org.testng.annotations.Test;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-import static org.testng.Assert.*;
+import static org.testng.Assert.assertEquals;
 
 public class AddRemoveElementsTest {
 
     WebDriver driver;
 
     @BeforeMethod
-    public void setup(){
-        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
+    public void setup() {
+        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
         ChromeOptions options = new ChromeOptions();
         options.setHeadless(false);
         driver = new ChromeDriver(options);
@@ -26,8 +26,9 @@ public class AddRemoveElementsTest {
     }
 
     @Test
-    public void addRemoveElementsTest(){
-        driver.get("http://the-internet.herokuapp.com/add_remove_elements/");
+    public void addRemoveElementsTest() {
+        final String URL = "http://the-internet.herokuapp.com/add_remove_elements/";
+        driver.get(URL);
         WebElement addButton = driver.findElement(By.xpath("//*[@onclick='addElement()']"));
         addButton.click();
         addButton.click();
@@ -37,7 +38,7 @@ public class AddRemoveElementsTest {
     }
 
     @AfterMethod
-    public void tearDown(){
+    public void tearDown() {
         driver.quit();
     }
 }

@@ -1,5 +1,4 @@
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -17,20 +16,20 @@ public class SortableDataTablesTest {
     WebDriver driver;
 
     @BeforeMethod
-    public void setup(){
-        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
+    public void setup() {
+        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
         ChromeOptions options = new ChromeOptions();
         options.setHeadless(false);
         options.addArguments("ignore-popup-blocking");
         options.addArguments("ignore-certificate.errors");
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-
     }
 
     @Test
-    public void sortableDataTablesTest(){
-        driver.get("http://the-internet.herokuapp.com/tables");
+    public void sortableDataTablesTest() {
+        final String URL = "http://the-internet.herokuapp.com/tables";
+        driver.get(URL);
         WebElement table1 = driver.findElement(By.xpath("//table[1]"));
         WebElement table1Row1 = table1.findElement(By.xpath("//tr[1]"));
         assertEquals(table1Row1.findElement(By.xpath("//td[1]")).getText(), "Smith", "Last name should be Smith");
@@ -41,7 +40,7 @@ public class SortableDataTablesTest {
     }
 
     @AfterMethod
-    public void tearDown(){
+    public void tearDown() {
         driver.quit();
     }
 }

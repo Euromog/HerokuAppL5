@@ -9,6 +9,7 @@ import java.util.concurrent.TimeUnit;
 public class baseTest {
     WebDriver driver;
 
+
     @BeforeMethod
     public void setup() {
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");

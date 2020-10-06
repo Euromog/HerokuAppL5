@@ -1,0 +1,40 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link href="CssForHtmlPage.css" rel="stylesheet">
+    <title>Home Work #8</title>
+</head>
+<body>
+<h1>Домашнее задание №8</h1>
+<br>
+<p>Registration form</p>
+<form name="register">
+    <label for="fname" class="headers">First name* </label><br>
+    <input type="text" id="fname" name="fname" required placeholder="Name"><br>
+    <label for="lname" class="headers">Last name* </label><br>
+    <input type="text" id="lname" name="lname" required placeholder="Surname"><br>
+    <label for="phone" class="headers">Cell phone* </label><br>
+    <span id="country-code">+375</span>
+    <input type="text" id="phone" name="phone" required placeholder="XX XXXXXXX"><br>
+    <label for="sex" id="sex" class="headers">Gender*</label><br>
+    <input type="radio" id="male" name="sex" required value="male">
+    <label for="male">Male</label><br>
+    <input type="radio" id="female" name="sex" value="female">
+    <label for="female">Female</label><br>
+
+    <label for="marriage" id="marriage" class="headers">Are you married?</label>
+    <input type="checkbox" id="isMarried"><br>
+    <label for="news" class="headers">How do you know about us</label>
+    <select name="news" id="news">
+        <option value="newspaper">Newspaper</option>
+        <option value="tv">TV</option>
+        <option value="internet">Internet</option>
+        <option value="friends">Friends</option>
+        <option value="other">Other</option>
+    </select> <br>
+    <button id="submit" type="submit">Sign Up</button>
+</form>
+<a href="https://entomology.ca.uky.edu/ef325" id="bugLink">You can find the link here</a> <br>
+<img src="//entomology.ca.uky.edu/files/styles/panopoly_image_original/public/325a.jpg?itok=Ni4pEtGs" id="bugPic" width="250" height="260" alt="Here is a bug!">
+</body>
+</html>
